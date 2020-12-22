@@ -19,7 +19,7 @@ export interface INotificationService {
   showInfo(title: string, message: string, icon?: string): void;
   showWait(title: string, message: string, icon?: string): void;
   showSuccess(title: string, message: string, icon?: string): void;
-  showWarning(title: string, message: string, icon?: string):void;
+  showWarning(title: string, message: string, icon?: string): void;
 }
 
 export function notificationFactory(toasterService: ToasterService): AbstractNotificationService {

@@ -24,8 +24,8 @@ export interface ILocalizationService {
   getTranslateService(): TranslateService;
 }
 
-export function localizationFactory(translateService: TranslateService, 
-  localizationConfiguration: LocalizationConfiguration): AbstractLocalizationService {
-  return new LocalizationService(translateService,localizationConfiguration);
+export function localizationFactory(translateService: TranslateService,
+                                    localizationConfiguration: LocalizationConfiguration): AbstractLocalizationService {
+  return new LocalizationService(translateService, localizationConfiguration);
 }
 
