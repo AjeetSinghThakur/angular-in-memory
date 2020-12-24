@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
+  bundlesOutputPath: 'assets/i18n',
   apiUrl: 'https://localhost:44353/api/',
   openIdConnectSettings: {
     authority: 'https://localhost:44398/',
