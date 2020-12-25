@@ -9,8 +9,8 @@ export class TranslationsLoader implements TranslateLoader {
   constructor(@Inject(LOCALIZATION_CONFIGURATION_TOKEN) private localizationConfiguration: LocalizationConfiguration) {}
 
   getTranslation(lang: string): Observable<any> {
-    const pathPrefix: string = location.origin + "/" + this.localizationConfiguration.bundlesOutputPath + "/";
-    let fallbackLanguage = this.localizationConfiguration.fallbackLanguage;
+    const pathPrefix: string = location.origin + '/' + this.localizationConfiguration.bundlesOutputPath + '/';
+    const fallbackLanguage = this.localizationConfiguration.fallbackLanguage;
 
     return observableFromPromise(fetch(pathPrefix + lang + '.json')).pipe(
       switchMap((response: Response) => response.json()),
@@ -18,7 +18,8 @@ export class TranslationsLoader implements TranslateLoader {
         return of(lang).pipe(
           filter((l: string) => l !== fallbackLanguage),
           switchMap(() => {
-            return observableFromPromise(fetch(pathPrefix + fallbackLanguage + '.json')).pipe(switchMap((response: Response) => response.json()), catchError(() => of({})));
+            return observableFromPromise(fetch(pathPrefix + fallbackLanguage + '.json'))
+            .pipe(switchMap((response: Response) => response.json()), catchError(() => of({})));
           })
         );
       })
