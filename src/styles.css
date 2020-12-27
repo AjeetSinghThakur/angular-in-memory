@@ -13,6 +13,12 @@ body {
   font-weight: bold;
   color: #fff;
 }
+select {
+    height: 40px;
+    padding-left: 14px;
+    padding-right: 4px;
+    margin-right: 20px;
+}
 
 .columnHeader {
   font-size: 0.9em;
