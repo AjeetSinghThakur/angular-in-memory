@@ -24,11 +24,11 @@ export class ContentComponent implements OnInit {
   constructor(private store: Store<fromRoot.State>) {}
 
   ngOnInit() {
-    this.store.dispatch(fromProductStore.loadAllProducts());
-    this.products$ = this.store.pipe(select(getProducts));
-    this.errorMessage$ = this.store.pipe(select(getError));
-    this.selectedProduct$ = this.store.pipe(select(getCurrentProduct));
-    this.displayCode$ = this.store.pipe(select(getShowProductCode));
+    // this.store.dispatch(fromProductStore.loadAllProducts());
+    // this.products$ = this.store.pipe(select(getProducts));
+    // this.errorMessage$ = this.store.pipe(select(getError));
+    // this.selectedProduct$ = this.store.pipe(select(getCurrentProduct));
+    // this.displayCode$ = this.store.pipe(select(getShowProductCode));
   }
   checkChanged(value: boolean): void {
     this.store.dispatch(fromProductStore.toggleProductCode({payload: value}));

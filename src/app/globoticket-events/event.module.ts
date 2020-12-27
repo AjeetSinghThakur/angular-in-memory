@@ -6,7 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ContentComponent } from './container';
 import { featureStateName, ProductEffects, productReducers } from './store';
-import { ProductEditComponent, ProductListComponent } from './presentational';
+import { EventListComponent } from './presentational/event-list/event-list.component';
 
 const routes: Routes = [
   { path: '', component: ContentComponent }
@@ -22,8 +22,7 @@ const routes: Routes = [
   ],
   declarations: [
     ContentComponent,
-    ProductListComponent,
-    ProductEditComponent
+    EventListComponent,
   ]
 })
-export class GloboticketModule { }
+export class EventModule { }
