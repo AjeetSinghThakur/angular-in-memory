@@ -1,110 +1,45 @@
-import * as productActions from './globoticket.actions';
+import * as eventActions from './globoticket.actions';
 import { createReducer, on, Action } from '@ngrx/store';
-import { Product } from '@app/models/product';
+import { EventData } from '@app/models';
 
-export interface ReducerProductState {
-  showProductCode: boolean;
-  currentProductId: number | null;
-  products: Product[];
+export interface ReducerEventState {
+  currentEventId: number | null;
+  events: EventData[];
   error: string;
   loading: boolean;
 }
 
-export const initialState: ReducerProductState = {
-  showProductCode: true,
-  currentProductId: null,
-  products: [],
+export const initialState: ReducerEventState = {
+  currentEventId: null,
+  events: [],
   error: '',
   loading: false
 };
 
-const productReducerInternal = createReducer(
+const eventReducerInternal = createReducer(
   initialState,
   on(
-    productActions.loadAllProducts,
-    productActions.updateProduct,
-    productActions.deleteProduct,
-    productActions.createProduct,
+    eventActions.loadAllEvents,
     state => ({
       ...state,
       loading: true
     })
-  ),
-  on(productActions.loadSuccess, (state, { payload }) => ({
+  )
+  ,
+  on(eventActions.loadSuccess, (state, { payload }) => ({
     ...state,
-    products: payload,
+    events: payload,
     error: '',
     loading: false
   })),
-  on(productActions.loadFail, (state, { payload }) => ({
+  on(eventActions.loadFail, (state, { payload }) => ({
     ...state,
-    products: [],
+    events: [],
     error: payload,
     loading: false,
   })),
-  on(productActions.toggleProductCode, (state, { payload }) => ({
-    ...state,
-    showProductCode: payload,
-    loading: false
-  })),
-  on(productActions.setCurrentProduct, (state, { payload }) => ({
-    ...state,
-    currentProductId: payload.id,
-    loading: false
-  })),
-  on(productActions.initializeCurrentProduct, state => ({
-      ...state,
-      currentProductId: 0,
-      loading: false
-  })),
-  on(productActions.updateProductSuccess, (state, { payload }) => {
-    const updatedProducts = state.products.map(item => payload.id === item.id ? payload : item);
-    return {
-      ...state,
-      products: updatedProducts,
-      currentProductId: payload.id,
-      error: '',
-      loading: false
-    };
-  }),
-  on(productActions.updateProductFail, (state, { payload }) => ({
-    ...state,
-    products: [],
-    error: payload,
-    loading: false,
-  })),
-  on(productActions.createProductSuccess, (state, { payload }) => {
-    return {
-      ...state,
-      products: [...state.products, payload],
-      currentProductId: payload.id,
-      error: '',
-      loading: false
-    };
-  }),
-  on(productActions.createProductFail, (state, { payload }) => ({
-    ...state,
-    products: [],
-    error: payload,
-    loading: false,
-  })),
-  on(productActions.deleteProductSuccess, (state, { payload }) => {
-    return {
-      ...state,
-      products: state.products.filter(product => product.id !== payload),
-      currentProductId: null,
-      error: '',
-      loading: false
-    };
-  }),
-  on(productActions.deleteProductFail, (state, { payload }) => ({
-    ...state,
-    products: [],
-    error: payload,
-    loading: false,
-  }))
 );
 
-export function productReducer(state: ReducerProductState | undefined, action: Action) {
-  return productReducerInternal(state, action);
+export function eventReducer(state: ReducerEventState | undefined, action: Action) {
+  return eventReducerInternal(state, action);
 }

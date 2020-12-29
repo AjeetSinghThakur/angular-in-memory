@@ -26,7 +26,7 @@ import { translateLoaderProvider } from './shared/translations';
     ToasterModule.forRoot(),
     RouterModule.forRoot(appRoutes, { useHash: false, preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' }),
     TranslateModule.forRoot({ loader: translateLoaderProvider }),
-    HttpClientInMemoryWebApiModule.forRoot(ProductData),
+    // HttpClientInMemoryWebApiModule.forRoot(ProductData),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     CoreModule,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { EventData } from '@app/models';
 
 @Component({
   selector: 'qa-event-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
+  @Input() errorMessage: string;
+  @Input() events: EventData[];
 
   constructor() { }
 

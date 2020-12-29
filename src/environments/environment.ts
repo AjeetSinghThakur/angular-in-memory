@@ -7,6 +7,7 @@ export const environment = {
   production: false,
   bundlesOutputPath: 'assets/i18n',
   apiUrl: 'https://localhost:44353/api/',
+  eventApiUrl: 'https://localhost:5001/api/',
   openIdConnectSettings: {
     authority: 'https://localhost:44398/',
     client_id: 'tourmanagementclient',

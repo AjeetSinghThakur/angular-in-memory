@@ -5,8 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ContentComponent } from './container';
-import { featureStateName, ProductEffects, productReducers } from './store';
 import { EventListComponent } from './presentational/event-list/event-list.component';
+import { EventEffects, eventFeature, eventReducers } from './store';
 
 const routes: Routes = [
   { path: '', component: ContentComponent }
@@ -17,8 +17,8 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature(featureStateName, productReducers),
-    EffectsModule.forFeature([ProductEffects]),
+    StoreModule.forFeature(eventFeature, eventReducers),
+    EffectsModule.forFeature([EventEffects]),
   ],
   declarations: [
     ContentComponent,

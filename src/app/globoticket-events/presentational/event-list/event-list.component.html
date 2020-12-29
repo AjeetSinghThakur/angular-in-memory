@@ -21,122 +21,26 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let event of events">
                 <td>
-                    <img class="artistPic" src="https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/musical.jpg" alt="Artist pic" />
+                    <img class="artistPic" src ="{{event.imageUrl}}" alt="Artist pic" />
                 </td>
                 <td>
-                    5/9/2021
+                    {{event.date| date :'medium'}}
                 </td>
                 <td>
-                    To the Moon and Back
+                    {{event.name}}
                 </td>
                 <td>
-                    Nick Sailor
+                    {{event.artist}}
                 </td>
                 <td class="bold big">
-                    $135
+                    ${{event.price}}
                 </td>
                 <td>
-                    <a class="btn-primary" type="button" href="/EventCatalog/Detail?eventId=adc42c09-08c1-4d2c-9f96-2d15bb1af299">DETAILS</a>
+                    <a class="btn-primary" type="button" href="/EventCatalog/Detail?eventId={{event.eventId}}">DETAILS</a>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <img class="artistPic" src="https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/dj.jpg" alt="Artist pic" />
-                </td>
-                <td>
-                    1/9/2021
-                </td>
-                <td>
-                    Clash of the DJs
-                </td>
-                <td>
-                    DJ &#x27;The Mike&#x27;
-                </td>
-                <td class="bold big">
-                    $85
-                </td>
-                <td>
-                    <a class="btn-primary" type="button" href="/EventCatalog/Detail?eventId=b419a7ca-3321-4f38-be8e-4d7b6a529319">DETAILS</a>
-                </td>
-                </tr><tr>
-                <td>
-                    <img class="artistPic" src="https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/conf.jpg" alt="Artist pic" />
-                </td>
-                <td>
-                    7/9/2021
-                </td>
-                <td>
-                    Techorama 2021
-                </td>
-                <td>
-                    Many
-                </td>
-                <td class="bold big">
-                    $400
-                </td>
-                <td>
-                    <a class="btn-primary" type="button" href="/EventCatalog/Detail?eventId=1babd057-e980-4cb3-9cd2-7fdd9e525668">DETAILS</a>
-                </td>
-                </tr><tr>
-                <td>
-                    <img class="artistPic" src="https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/guitar.jpg" alt="Artist pic" />
-                </td>
-                <td>
-                    1/9/2021
-                </td>
-                <td>
-                    Spanish guitar hits with Manuel
-                </td>
-                <td>
-                    Manuel Santinonisi
-                </td>
-                <td class="bold big">
-                    $25
-                </td>
-                <td>
-                    <a class="btn-primary" type="button" href="/EventCatalog/Detail?eventId=62787623-4c52-43fe-b0c9-b7044fb5929b">DETAILS</a>
-                </td>
-                </tr><tr>
-                <td>
-                    <img class="artistPic" src="https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/banjo.jpg" alt="Artist pic" />
-                </td>
-                <td>
-                    3/9/2021
-                </td>
-                <td>
-                    John Egbert Live
-                </td>
-                <td>
-                    John Egbert
-                </td>
-                <td class="bold big">
-                    $65
-                </td>
-                <td>
-                    <a class="btn-primary" type="button" href="/EventCatalog/Detail?eventId=ee272f8b-6096-4cb6-8625-bb4bb2d89e8b">DETAILS</a>
-                </td>
-                </tr><tr>
-                <td>
-                    <img class="artistPic" src="https://gillcleerenpluralsight.blob.core.windows.net/files/GloboTicket/michael.jpg" alt="Artist pic" />
-                </td>
-                <td>
-                    6/9/2021
-                </td>
-                <td>
-                    The State of Affairs: Michael Live!
-                </td>
-                <td>
-                    Michael Johnson
-                </td>
-                <td class="bold big">
-                    $85
-                </td>
-                <td>
-                    <a class="btn-primary" type="button" href="/EventCatalog/Detail?eventId=3448d5a4-0f72-4dd7-bf15-c14a46b26c00">DETAILS</a>
-                </td>
-</tr>
         </tbody>
     </table>
 </div>
