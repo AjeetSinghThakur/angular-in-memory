@@ -6,17 +6,15 @@
 export const environment = {
   production: false,
   bundlesOutputPath: 'assets/i18n',
-  apiUrl: 'https://localhost:44353/api/',
   eventApiUrl: 'https://localhost:5001/api/',
   openIdConnectSettings: {
-    authority: 'https://localhost:44398/',
-    client_id: 'tourmanagementclient',
+    authority: 'https://localhost:5010/',
+    client_id: 'globoticketimplicit',
     redirect_uri: 'https://localhost:4200/signin-oidc',
-    scope: 'openid profile roles tourmanagementapi',
-    response_type: 'id_token token',
+    scope: 'openid profile',
+    response_type: 'id_token',
     post_logout_redirect_uri: 'https://localhost:4200/',
-    automaticSilentRenew: true,
-    silent_redirect_uri: 'https://localhost:4200/redirect-silentrenew'
+    // automaticSilentRenew: true,
   }
 };
 

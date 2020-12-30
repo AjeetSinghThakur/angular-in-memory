@@ -9,6 +9,7 @@ import { NavigationComponent, PageNotFoundComponent } from './components';
 import { Configuration, DEFAULT_LOCALIZATION_CONFIGURATION, LOCALIZATION_CONFIGURATION_TOKEN } from './configurations';
 import { TextDirectionDirective } from './directives/text-direction.directive';
 import { FilterPipe } from './pipes';
+import { SigninOidcComponent } from './components/signin-oidc/signin-oidc.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { FilterPipe } from './pipes';
     NavigationComponent,
     PageNotFoundComponent,
     TextDirectionDirective,
-    FilterPipe
+    FilterPipe,
+    SigninOidcComponent
   ],
   providers: [
     Configuration,

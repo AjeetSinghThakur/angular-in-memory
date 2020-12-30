@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import { Configuration } from './shared/configurations';
 import { AbstractLocalizationService } from './shared/services';
+import { OpenIdConnectService } from './shared/services/open-id-connect.service';
 
 @Component({
   selector: 'qa-root',
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(public configuration: Configuration,
               private router: Router,
-              private localizationService: AbstractLocalizationService) {
+              private localizationService: AbstractLocalizationService,
+              private openIdConnectService: OpenIdConnectService) {
 
     this.localizationService.configure();
     this.localizationService.useLanguage('en');
@@ -27,6 +29,13 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.router.events.subscribe((event) => this.setLoadingIndicator(event)));
     this.subscriptions.push(this.router.events.pipe(filter((event) =>
     event instanceof NavigationEnd)).subscribe((event) => window.scrollTo(0, 0)));
+
+    const path = window.location.pathname;
+    if (path !== '/signin-oidc') {
+      if (!this.openIdConnectService.userAvailable) {
+        this.openIdConnectService.triggerSignIn();
+      }
+    }
   }
 
   setLoadingIndicator(event: Event) {

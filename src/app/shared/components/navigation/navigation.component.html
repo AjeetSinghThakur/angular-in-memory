@@ -20,7 +20,9 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/notfound']">Others</a>
       </li>
-
+      <li *ngIf='openIdConnectService.userAvailable' class="nav-item" routerLinkActive="active">
+        <a href="javascript:void()" class="nav-link" (click)="openIdConnectService.triggerSignOut()">Sign out</a>
+      </li>
     </ul>
   </div>
   <div>
