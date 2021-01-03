@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { UserManager, User } from 'oidc-client';
-import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
-
+import { ReplaySubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })

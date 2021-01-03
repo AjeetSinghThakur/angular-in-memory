@@ -29,13 +29,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.router.events.subscribe((event) => this.setLoadingIndicator(event)));
     this.subscriptions.push(this.router.events.pipe(filter((event) =>
     event instanceof NavigationEnd)).subscribe((event) => window.scrollTo(0, 0)));
-
-    const path = window.location.pathname;
-    if (path !== '/signin-oidc') {
-      if (!this.openIdConnectService.userAvailable) {
-        this.openIdConnectService.triggerSignIn();
-      }
-    }
   }
 
   setLoadingIndicator(event: Event) {
