@@ -3,7 +3,7 @@ import { environment } from '@env/environment';
 export interface LocalizationConfiguration {
   supportedLocales: string[];
   rtlLanguages: string[];
-  bundlesOutputPath:string;
+  bundlesOutputPath: string;
   fallbackLanguage: string;
 }
 

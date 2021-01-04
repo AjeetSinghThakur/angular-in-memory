@@ -10,6 +10,7 @@ import { Configuration, DEFAULT_LOCALIZATION_CONFIGURATION, LOCALIZATION_CONFIGU
 import { TextDirectionDirective } from './directives/text-direction.directive';
 import { FilterPipe } from './pipes';
 import { SigninOidcComponent } from './components/signin-oidc/signin-oidc.component';
+import { RedirectSilentRenewComponent } from './components/redirect-silent-renew/redirect-silent-renew.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { SigninOidcComponent } from './components/signin-oidc/signin-oidc.compon
     PageNotFoundComponent,
     TextDirectionDirective,
     FilterPipe,
-    SigninOidcComponent
+    SigninOidcComponent,
+    RedirectSilentRenewComponent
   ],
   providers: [
     Configuration,
